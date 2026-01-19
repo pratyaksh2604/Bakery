@@ -141,33 +141,3 @@ def main():
 
 main()
 
-
-
-CREATE DATABASE bakery;
-USE bakery;
-
-CREATE TABLE Items (
-    ItemID INT PRIMARY KEY AUTO_INCREMENT,
-    ItemName VARCHAR(50),
-    Category VARCHAR(30),
-    Price DECIMAL(10,2),
-    Stock INT
-);
-
-CREATE TABLE Purchases (
-    PurchaseID INT PRIMARY KEY AUTO_INCREMENT,
-    ItemID INT,
-    Quantity INT,
-    PurchaseDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
-);
-
-CREATE TABLE Sales (
-    SaleID INT PRIMARY KEY AUTO_INCREMENT,
-    ItemID INT,
-    Quantity INT,
-    TotalAmount DECIMAL(10,2),
-    SaleDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
-);
-
